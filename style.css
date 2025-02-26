@@ -21,10 +21,362 @@ div {
     width: 664px;
     height: 640px;
 }
-
-#TShot.checked{
-    background-image: url("WeaponAnim/TShot_Checked.gif");
+h1{
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    font-size: 6em;
 }
-#TShot.unchecked{
-    background-image: url("WeaponAnim/TShot_Unchecked.gif");
+
+
+
+#Sploosh.checked{
+    background-image: url("resources/weapon-images/Sploosh_Checked.png");
+}
+#Sploosh.unchecked{
+    background-image: url("resources/weapon-images/Sploosh_Unchecked.png");
+}
+#AltSploosh.checked{
+    background-image: url("resources/weapon-images/AltSploosh_Checked.png");
+}
+#AltSploosh.unchecked{
+    background-image: url("resources/weapon-images/AltSploosh_Unchecked.png");
+}
+
+#Jr.checked{
+    background-image: url("resources/weapon-images/Jr_Checked.png");
+}
+#Jr.unchecked{
+    background-image: url("resources/weapon-images/Jr_Unchecked.png");
+}
+#AltJr.checked{
+    background-image: url("resources/weapon-images/AltJr_Checked.png");
+}
+#AltJr.unchecked{
+    background-image: url("resources/weapon-images/AltJr_Unchecked.png");
+}
+
+#Splash.checked{
+    background-image: url("resources/weapon-images/Splash_Checked.png");
+}
+#Splash.unchecked{
+    background-image: url("resources/weapon-images/Splash_Unchecked.png");
+}
+#AltSplash.checked{
+    background-image: url("resources/weapon-images/AltSplash_Checked.png");
+}
+#AltSplash.unchecked{
+    background-image: url("resources/weapon-images/AltSplash_Unchecked.png");
+}
+
+#Aerospray.checked{
+    background-image: url("resources/weapon-images/Aerospray_Checked.png");
+}
+#Aerospray.unchecked{
+    background-image: url("resources/weapon-images/Aerospray_Unchecked.png");
+}
+#AltAerospray.checked{
+    background-image: url("resources/weapon-images/AltAerospray_Checked.png");
+}
+#AltAerospray.unchecked{
+    background-image: url("resources/weapon-images/AltAerospray_Unchecked.png");
+}
+
+#Shot.checked{
+    background-image: url("resources/weapon-images/_Checked.png");
+}
+#Shot.unchecked{
+    background-image: url("resources/weapon-images/_Unchecked.png");
+}
+#AltShot.checked{
+    background-image: url("resources/weapon-images/ShotAlt_Checked.png");
+}
+#AltShot.unchecked{
+    background-image: url("resources/weapon-images/ShotAlt_Unchecked.png");
+}
+
+#Gal52.checked{
+    background-image: url("resources/weapon-images/52_Checked.png");
+}
+#Gal52.unchecked{
+    background-image: url("resources/weapon-images/52_Unchecked.png");
+}
+#AltGal52.checked{
+    background-image: url("resources/weapon-images/Alt52_Checked.png");
+}
+#AltGal52.unchecked{
+    background-image: url("resources/weapon-images/Alt52_Unchecked.png");
+}
+
+#Zap.checked{
+    background-image: url("resources/weapon-images/Zap_Checked.png");
+}
+#Zap.unchecked{
+    background-image: url("resources/weapon-images/Zap_Unchecked.png");
+}
+#AltZap.checked{
+    background-image: url("resources/weapon-images/AltZap_Checked.png");
+}
+#AltZap.unchecked{
+    background-image: url("resources/weapon-images/AltZap_Unchecked.png");
+}
+
+#Pro.checked{
+    background-image: url("resources/weapon-images/Pro_Checked.png");
+}
+#Pro.unchecked{
+    background-image: url("resources/weapon-images/Pro_Unchecked.png");
+}
+#AltPro.checked{
+    background-image: url("resources/weapon-images/AltPro_Checked.png");
+}
+#AltPro.unchecked{
+    background-image: url("resources/weapon-images/AltPro_Unchecked.png");
+}
+
+#Gal96.checked{
+    background-image: url("resources/weapon-images/96_Checked.png");
+}
+#Gal96.unchecked{
+    background-image: url("resources/weapon-images/96_Unchecked.png");
+}
+#AltGal96.checked{
+    background-image: url("resources/weapon-images/Alt96_Checked.png");
+}
+#AltGal96.unchecked{
+    background-image: url("resources/weapon-images/Alt96_Unchecked.png");
+}
+
+#Jet.checked{
+    background-image: url("resources/weapon-images/Jet_Checked.png");
+}
+#Jet.unchecked{
+    background-image: url("resources/weapon-images/Jet_Unchecked.png");
+}
+#AltJet.checked{
+    background-image: url("resources/weapon-images/AltJet_Checked.png");
+}
+#AltJet.unchecked{
+    background-image: url("resources/weapon-images/AltJet_Unchecked.png");
+}
+
+#Nova.checked{
+    background-image: url("resources/weapon-images/Nova_Checked.png");
+}
+#Nova.unchecked{
+    background-image: url("resources/weapon-images/Nova_Unchecked.png");
+}
+#AltNova.checked{
+    background-image: url("resources/weapon-images/AltNova_Checked.png");
+}
+#AltNova.unchecked{
+    background-image: url("resources/weapon-images/AltNova_Unchecked.png");
+}
+
+#Luna.checked{
+    background-image: url("resources/weapon-images/Luna_Checked.png");
+}
+#Luna.unchecked{
+    background-image: url("resources/weapon-images/Luna_Unchecked.png");
+}
+#AltLuna.checked{
+    background-image: url("resources/weapon-images/AltLuna_Checked.png");
+}
+#AltLuna.unchecked{
+    background-image: url("resources/weapon-images/AltLuna_Unchecked.png");
+}
+
+#Blaster.checked{
+    background-image: url("resources/weapon-images/Blaster_Checked.png");
+}
+#Blaster.unchecked{
+    background-image: url("resources/weapon-images/Blaster_Unchecked.png");
+}
+#AltBlaster.checked{
+    background-image: url("resources/weapon-images/AltBlaster_Checked.png");
+}
+#AltBlaster.unchecked{
+    background-image: url("resources/weapon-images/AltBlaster_Unchecked.png");
+}
+
+#Range.checked{
+    background-image: url("resources/weapon-images/Range_Checked.png");
+}
+#Range.unchecked{
+    background-image: url("resources/weapon-images/Range_Unchecked.png");
+}
+#AltRange.checked{
+    background-image: url("resources/weapon-images/AltRange_Checked.png");
+}
+#AltRange.unchecked{
+    background-image: url("resources/weapon-images/AltRange_Unchecked.png");
+}
+
+#Clash.checked{
+    background-image: url("resources/weapon-images/Clash_Checked.png");
+}
+#Clash.unchecked{
+    background-image: url("resources/weapon-images/Clash_Unchecked.png");
+}
+#AltClash.checked{
+    background-image: url("resources/weapon-images/AltClash_Checked.png");
+}
+#AltClash.unchecked{
+    background-image: url("resources/weapon-images/AltClash_Unchecked.png");
+}
+
+#Rapid.checked{
+    background-image: url("resources/weapon-images/Rapid_Checked.png");
+}
+#Rapid.unchecked{
+    background-image: url("resources/weapon-images/Rapid_Unchecked.png");
+}
+#RapidAlt.checked{
+    background-image: url("resources/weapon-images/AltRapid_Checked.png");
+}
+#RapidAlt.unchecked{
+    background-image: url("resources/weapon-images/AltRapid_Unchecked.png");
+}
+
+#RapidPro.checked{
+    background-image: url("resources/weapon-images/RapidPro_Checked.png");
+}
+#RapidPro.unchecked{
+    background-image: url("resources/weapon-images/RapidPro_Unchecked.png");
+}
+#AltRapidPro.checked{
+    background-image: url("resources/weapon-images/AltRapidPro_Checked.png");
+}
+#AltRapidPro.unchecked{
+    background-image: url("resources/weapon-images/AltRapidPro_Unchecked.png");
+}
+
+#SBlast.checked{
+    background-image: url("resources/weapon-images/SBlast_Checked.png");
+}
+#SBlast.unchecked{
+    background-image: url("resources/weapon-images/SBlast_Unchecked.png");
+}
+#AltSBlast.checked{
+    background-image: url("resources/weapon-images/AltSBlast_Checked.png");
+}
+#AltSBlast.unchecked{
+    background-image: url("resources/weapon-images/AltSBlast_Unchecked.png");
+}
+
+#L3.checked{
+    background-image: url("resources/weapon-images/L3_Checked.png");
+}
+#L3.unchecked{
+    background-image: url("resources/weapon-images/L3_Unchecked.png");
+}
+#AltL3.checked{
+    background-image: url("resources/weapon-images/AltL3_Checked.png");
+}
+#AltL3.unchecked{
+    background-image: url("resources/weapon-images/AltL3_Unchecked.png");
+}
+
+#H3.checked{
+    background-image: url("resources/weapon-images/H3_Checked.png");
+}
+#H3.unchecked{
+    background-image: url("resources/weapon-images/H3_Unchecked.png");
+}
+#AltH3.checked{
+    background-image: url("resources/weapon-images/AltH3_Checked.png");
+}
+#AltH3.unchecked{
+    background-image: url("resources/weapon-images/AltH3_Unchecked.png");
+}
+
+#Squeezer.checked{
+    background-image: url("resources/weapon-images/Squeezer_Checked.png");
+}
+#Squeezer.unchecked{
+    background-image: url("resources/weapon-images/Squeezer_Unchecked.png");
+}
+#AltSqueezer.checked{
+    background-image: url("resources/weapon-images/AltSqueezer_Checked.png");
+}
+#AltSqueezer.unchecked{
+    background-image: url("resources/weapon-images/AltSqueezer_Unchecked.png");
+}
+
+#Carbon.checked{
+    background-image: url("resources/weapon-images/Carbon_Checked.png");
+}
+#Carbon.unchecked{
+    background-image: url("resources/weapon-images/Carbon_Unchecked.png");
+}
+#AltCarbon.checked{
+    background-image: url("resources/weapon-images/AltCarbon_Checked.png");
+}
+#AltCarbon.unchecked{
+    background-image: url("resources/weapon-images/AltCarbon_Unchecked.png");
+}
+
+#Roller.checked{
+    background-image: url("resources/weapon-images/Roller_Checked.png");
+}
+#Roller.unchecked{
+    background-image: url("resources/weapon-images/Roller_Unchecked.png");
+}
+#AltRoller.checked{
+    background-image: url("resources/weapon-images/AltRoller_Checked.png");
+}
+#AltRoller.unchecked{
+    background-image: url("resources/weapon-images/AltRoller_Unchecked.png");
+}
+
+#Dynamo.checked{
+    background-image: url("resources/weapon-images/Dynamo_Checked.png");
+}
+#Dynamo.unchecked{
+    background-image: url("resources/weapon-images/Dynamo_Unchecked.png");
+}
+#AltDynamo.checked{
+    background-image: url("resources/weapon-images/AltDynamo_Checked.png");
+}
+#AltDynamo.unchecked{
+    background-image: url("resources/weapon-images/AltDynamo_Unchecked.png");
+}
+
+#Flingza.checked{
+    background-image: url("resources/weapon-images/Flingza_Checked.png");
+}
+#Flingza.unchecked{
+    background-image: url("resources/weapon-images/Flingza_Unchecked.png");
+}
+#AltFlingza.checked{
+    background-image: url("resources/weapon-images/AltFlingza_Checked.png");
+}
+#AltFlingza.unchecked{
+    background-image: url("resources/weapon-images/AltFlingza_Unchecked.png");
+}
+
+#Swig.checked{
+    background-image: url("resources/weapon-images/Swig_Checked.png");
+}
+#Swig.unchecked{
+    background-image: url("resources/weapon-images/Swig_Unchecked.png");
+}
+#AltSwig.checked{
+    background-image: url("resources/weapon-images/AltSwig_Checked.png");
+}
+#AltSwig.unchecked{
+    background-image: url("resources/weapon-images/AltSwig_Unchecked.png");
+}
+
+#Inkbrush.checked{
+    background-image: url("resources/weapon-images/Inkbrush_Checked.png");
+}
+#Inkbrush.unchecked{
+    background-image: url("resources/weapon-images/Inkbrush_Unchecked.png");
+}
+#AltInkbrush.checked{
+    background-image: url("resources/weapon-images/AltInkbrush_Checked.png");
+}
+#AltInkbrush.unchecked{
+    background-image: url("resources/weapon-images/AltInkbrush_Unchecked.png");
 }
