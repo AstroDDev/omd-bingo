@@ -264,10 +264,10 @@ p{
 #Rapid.unchecked{
     background-image: url("resources/weapon-images/Rapid_Unchecked.png");
 }
-#RapidAlt.checked{
+#AltRapid.checked{
     background-image: url("resources/weapon-images/AltRapid_Checked.png");
 }
-#RapidAlt.unchecked{
+#AltRapid.unchecked{
     background-image: url("resources/weapon-images/AltRapid_Unchecked.png");
 }
 
@@ -485,7 +485,7 @@ p{
     background-image: url("resources/weapon-images/Liter_Unchecked.png");
 }
 #AltLiter.checked{
-    background-image: url("resources/weapon-images/AlLitert_Checked.png");
+    background-image: url("resources/weapon-images/AltLiter_Checked.png");
 }
 #AltLiter.unchecked{
     background-image: url("resources/weapon-images/AltLiter_Unchecked.png");
@@ -496,7 +496,7 @@ p{
 #LiterScoped.unchecked{
     background-image: url("resources/weapon-images/LiterScoped_Unchecked.png");
 }
-#AltLiteScopedr.checked{
+#AltLiterScoped.checked{
     background-image: url("resources/weapon-images/AltLiterScoped_Checked.png");
 }
 #AltLiterScoped.unchecked{
