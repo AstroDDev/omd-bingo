@@ -1,1 +1,30 @@
+body{
+    background-color: black;
+}
+img {
+    width: 120px;
+    height: 120px;
+    border: 4px solid white;
+    left: 50%;
+}
+.checked{
+    background-color: green;
+}
+.unchecked{
+    background-color: black;
+}
+div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    width: 664px;
+    height: 640px;
+}
 
+#TShot.checked{
+    background-image: url("WeaponAnim/TShot_Checked.gif");
+}
+#TShot.unchecked{
+    background-image: url("WeaponAnim/TShot_Unchecked.gif");
+}
