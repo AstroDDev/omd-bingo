@@ -21,6 +21,7 @@ tile {
 }
 .checked{
     background-color: green;
+    box-shadow: 0 0 0.5vmin 0.5vmin inset rgba(0, 0, 0, 0.5);
 }
 .unchecked{
     background-color: black;
