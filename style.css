@@ -12,11 +12,12 @@ body{
     overflow: hidden;
 }
 tile {
-    width: 120px;
-    height: 120px;
+    width: 12vmin;
+    height: 12vmin;
     display: inline-block;
-    border-radius: 16px;
-    margin: 4px;
+    border-radius: 2vmin;
+    margin: 0.5vmin;
+    background-size: cover;
 }
 .checked{
     background-color: green;
@@ -28,13 +29,13 @@ tile {
     display: table;
     margin-left: auto;
     margin-right: auto;
-    padding: 16px;
+    padding: 1vmin;
 
     background: linear-gradient(45deg, rgba(168,0,0,1) 0%, rgba(0,0,120,1) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    border-radius: 24px;
+    border-radius: 3vmin;
 
     position: absolute;
     transform: translate(-50%, -50%);
