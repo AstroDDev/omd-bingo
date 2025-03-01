@@ -303,8 +303,8 @@
             }
 
             const boardID = new URLSearchParams(window.location.search).get("id");
-            
-            fetch(board_path + boardID + ".json").then(r => JSON.parse(r.text())).then(t => console.log(t));
+            console.log(boardID);
+            fetch(board_path + boardID + ".json").then(r => r.text()).then(t => console.log(t));
 
             window.onload = function(){
                 //Grab Board
