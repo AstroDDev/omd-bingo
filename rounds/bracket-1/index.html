@@ -48,50 +48,266 @@
             BINGO BINGO BINGO BINGO BINGO BINGO BINGO BINGO BINGO BINGO 
             BINGO BINGO BINGO BINGO BINGO BINGO BINGO BINGO BINGO BINGO 
         </p>
+        <svg>
+            <defs>
+                <filter id="filter" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse">
+                    <feImage href="https://raw.githubusercontent.com/AstroDDev/omd-bingo/refs/heads/main/resources/filters/disp-mapV3.png" result="DSPIMG"/>
+                    <feDisplacementMap id="disp_map" in="SourceGraphic" in2="DSPIMG" scale="0" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap"/>
+                </filter>
+            </defs>
+        </svg>
         <div class="board">
             <div class="row">
-                <tile onclick="bingoCheck(0)" id="AltCharger" class="unchecked"></tile>
-                <tile onclick="bingoCheck(1)" id="Roller" class="unchecked"></tile>
-                <tile onclick="bingoCheck(2)" id="AltBlob" class="unchecked"></tile>
-                <tile onclick="bingoCheck(3)" id="Dapples" class="unchecked"></tile>
-                <tile onclick="bingoCheck(4)" id="AltZap" class="unchecked"></tile>
+                <div onclick="bingoCheck(0)" class="tile" id="Alt96">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(1)" class="tile" id="Hydra">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(2)" class="tile" id="AltRoller">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(3)" class="tile" id="Pain">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(4)" class="tile" id="Stamper">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <tile onclick="bingoCheck(5)" id="Pro" class="unchecked"></tile>
-                <tile onclick="bingoCheck(6)" id="AltSquiffer" class="unchecked"></tile>
-                <tile onclick="bingoCheck(7)" id="AltPainbrush" class="unchecked"></tile>
-                <tile onclick="bingoCheck(8)" id="Dread" class="unchecked"></tile>
-                <tile onclick="bingoCheck(9)" id="AltTetras" class="unchecked"></tile>
+                <div onclick="bingoCheck(5)" class="tile" id="52">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(6)" class="tile" id="AltWiper">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(7)" class="tile" id="Stringer">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(8)" class="tile" id="Inkbrush">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(9)" class="tile" id="AltDynamo">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <tile onclick="bingoCheck(10)" id="AltClash" class="unchecked"></tile>
-                <tile onclick="bingoCheck(11)" id="Sploosh" class="unchecked"></tile>
-                <tile onclick="bingoCheck(12)" id="AltBambo" class="unchecked"></tile>
-                <tile onclick="bingoCheck(13)" id="Flingza" class="unchecked"></tile>
-                <tile onclick="bingoCheck(14)" id="AltMachine" class="unchecked"></tile>
+                <div onclick="bingoCheck(10)" class="tile" id="Range">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(11)" class="tile" id="AltRapidPro">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(12)" class="tile" id="AltTent">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(13)" class="tile" id="Gloogas">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(14)" class="tile" id="Splash">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <tile onclick="bingoCheck(15)" id="AltTri" class="unchecked"></tile>
-                <tile onclick="bingoCheck(16)" id="Gloogas" class="unchecked"></tile>
-                <tile onclick="bingoCheck(17)" id="Reeflux" class="unchecked"></tile>
-                <tile onclick="bingoCheck(18)" id="Bambo" class="unchecked"></tile>
-                <tile onclick="bingoCheck(19)" id="AltInkbrush" class="unchecked"></tile>
+                <div onclick="bingoCheck(15)" class="tile" id="Liter">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(16)" class="tile" id="AltHeavy">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(17)" class="tile" id="AltSquiffer">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(18)" class="tile" id="AltOctobrush">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(19)" class="tile" id="AltDapples">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <tile onclick="bingoCheck(20)" id="Carbon" class="unchecked"></tile>
-                <tile onclick="bingoCheck(21)" id="AltBrella" class="unchecked"></tile>
-                <tile onclick="bingoCheck(22)" id="Rapid" class="unchecked"></tile>
-                <tile onclick="bingoCheck(23)" id="Jet" class="unchecked"></tile>
-                <tile onclick="bingoCheck(24)" id="Goo" class="unchecked"></tile>
+                <div onclick="bingoCheck(20)" class="tile" id="AltZap">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(21)" class="tile" id="Brella">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(22)" class="tile" id="AltCharger">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(23)" class="tile" id="Slosher">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
+                <div onclick="bingoCheck(24)" class="tile" id="AltTri">
+                    <div class="checked">
+                        <svg viewBox="0 0 120 120" class="unchecked">
+                            <image width="120" height="120">
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
         <script defer>
-            var cells = document.getElementsByTagName("tile");
-            
+            //Blob Stuff
+            const feImage = document.getElementsByTagName("feImage")[0];
+            const url = feImage.getAttribute("href");
+
+            fetch(url)
+                .then((response) => response.blob())
+                .then((blob) => {
+                    const objURL = URL.createObjectURL(blob);
+
+                    feImage.setAttribute('href', objURL);
+                });
+
+            //Bingo Stuff
+            const cells = document.getElementsByClassName("tile");
+            const image_path = "../../resources/weapon-images/";
+
+            var cells_checked = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+            var cell_frame = 0;
+            var cell_interval;
+
+            const filter = document.getElementById("disp_map");
+
             function bingoCheck(index){
-                var checked = cells[index].className == "checked";
-                cells[index].className = checked ? "unchecked" : "checked";
+                resetFrames();
+
+                cells_checked[index] = !cells_checked[index];
+                cell_frame = cells_checked[index] ? 0 : 240;
+                cells[index].children[0].children[0].children[0].style.display = "block";
+                cells[index].children[0].children[0].children[0].style.filter = "url(#filter)";
+
+                stepFrame(index);
+                cell_interval = window.setInterval(() => {stepFrame(index);}, 40);
             }
+
+            function resetFrames(){
+                cell_frame = 0;
+                filter.setAttribute("scale", cell_frame);
+
+                window.clearInterval(cell_interval);
+
+                for (var i = 0; i < cells.length; i++){
+                    cells[i].children[0].children[0].children[0].style.filter = "";
+                    cells[i].children[0].children[0].children[0].style.display = cells_checked[i] ? "none" : "block";
+                }
+            }
+
+            function stepFrame(index){
+                cell_frame += cells_checked[index] ? 30 : -30;
+                filter.setAttribute("scale", cell_frame);
+                cells[index].children[0].children[0].style.display = "none";
+                cells[index].children[0].children[0].style.display = "block";
+
+                if (cell_frame > 240 || cell_frame < 0){
+                    resetFrames();
+                }
+            }
+
+            window.onload = function(){
+                for (var i = 0; i < cells.length; i++){
+                    var weaponName = cells[i].id;
+                    cells[i].children[0].style.backgroundImage = "url('" + image_path + cells[i].id + "_Checked.png')";
+                    cells[i].children[0].children[0].children[0].setAttribute("href", image_path + cells[i].id + "_Unchecked.png");
+                }
+            };
         </script>
     </body>
 </html>
