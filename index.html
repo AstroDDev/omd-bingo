@@ -303,8 +303,9 @@
             }
 
             const boardID = new URLSearchParams(window.location.search).get("id");
+            var weapons = [];
             console.log(boardID);
-            fetch(board_path + boardID + ".txt").then(r => r.text().split(",")).then(t => console.log(t));
+            fetch(board_path + boardID + ".txt").then(r => r.text()).then(t => weapons = t.split(",")).then(() => console.log(weapons));
 
             window.onload = function(){
                 //Set Images
