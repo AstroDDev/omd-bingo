@@ -304,12 +304,9 @@
 
             const boardID = new URLSearchParams(window.location.search).get("id");
             console.log(boardID);
-            fetch(board_path + boardID + ".json").then(r => JSON.parse(r.text())).then(t => console.log(t));
+            fetch(board_path + boardID + ".json").then(r => r.text().split(",")).then(t => console.log(t));
 
             window.onload = function(){
-                //Grab Board
-                var boardID = window.location.search.replace("?", "");
-
                 //Set Images
                 for (var i = 0; i < cells.length; i++){
                     var weaponName = cells[i].id;
