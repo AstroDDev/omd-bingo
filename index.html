@@ -305,16 +305,14 @@
             const boardID = new URLSearchParams(window.location.search).get("id");
             var weapons = [];
             console.log(boardID);
-            fetch(board_path + boardID + ".txt").then(r => r.text()).then(t => weapons = t.split(",")).then(() => console.log(weapons));
-
-            window.onload = function(){
-                //Set Images
+            fetch(board_path + boardID + ".txt").then(r => r.text()).then(t => weapons = t.split(",")).then(() => {
                 for (var i = 0; i < cells.length; i++){
-                    var weaponName = cells[i].id;
-                    cells[i].children[0].style.backgroundImage = "url('" + image_path + cells[i].id + "_Checked.png')";
-                    cells[i].children[0].children[0].children[0].setAttribute("href", image_path + cells[i].id + "_Unchecked.png");
+                    var weaponName = weapons[i];
+                    cells[i].id = weaponName;
+                    cells[i].children[0].style.backgroundImage = "url('" + image_path + weaponName + "_Checked.png')";
+                    cells[i].children[0].children[0].children[0].setAttribute("href", image_path + weaponName + "_Unchecked.png");
                 }
-            };
+            });
         </script>
     </body>
 </html>
