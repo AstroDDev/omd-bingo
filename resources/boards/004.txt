@@ -1,1 +1,1 @@
-52,Edit,AltRapid,AltBlob,AltLiter,RapidPro,Wellstring,Undercover,Rapid,Shot,AltHeavy,AltTri,AltSplash,AltJet,AltSploosh,AltDynamo,Clash,Bambo,Carbon,AltSBlast,AltEdit,AltGloogas,AltCharger,Dousers,AltDousers
+52,Edit,AltRapid,AltBlob,AltLiter,RapidPro,Wellstring,Undercover,Rapid,Shot,AltHeavy,AltTri,AltSplash,AltJet,AltSploosh,AltDynamo,Clash,Bambo,Carbon,AltSBlast,AltEdit,AltGloogas,Charger,Dousers,AltDousers
