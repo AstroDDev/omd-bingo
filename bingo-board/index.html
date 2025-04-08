@@ -260,7 +260,7 @@
             //Bingo Stuff
             const cells = document.getElementsByClassName("tile");
             const image_path = "../resources/weapon-images/";
-            const board_path = "../resources/boards/"
+            //const board_path = "../resources/boards/"
 
             var cells_checked = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
             var cell_frame = 0;
@@ -303,7 +303,19 @@
                 }
             }
 
-            const boardID = new URLSearchParams(window.location.search).get("id");
+
+            const rawBoardData = new URLSearchParams(window.location.search).get("board");
+            const textEncoder = new TextEncoder();
+            var boardData = textEncoder.encode(rawBoardData);
+            for (var i = 0; i < cells.length; i++){
+                var weaponName = boardData[i];
+                cells[i].id = weaponName;
+                cells[i].children[0].style.backgroundImage = "url('" + image_path + weaponName + "_Checked.png')";
+                cells[i].children[0].children[0].children[0].setAttribute("href", image_path + weaponName + "_Unchecked.png");
+            }
+
+            //Old Board Loading
+            /*const boardID = new URLSearchParams(window.location.search).get("id");
             var weapons = [];
             console.log(boardID);
             fetch(board_path + boardID + ".txt").then(r => r.text()).then(t => weapons = t.split(",")).then(() => {
@@ -313,7 +325,7 @@
                     cells[i].children[0].style.backgroundImage = "url('" + image_path + weaponName + "_Checked.png')";
                     cells[i].children[0].children[0].children[0].setAttribute("href", image_path + weaponName + "_Unchecked.png");
                 }
-            });
+            });*/
         </script>
     </body>
 </html>
