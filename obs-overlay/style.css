@@ -1,0 +1,115 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+    overflow: hidden;
+}
+
+body{
+    overflow: hidden;
+}
+.tile {
+    position: relative;
+    width: 12vmin;
+    height: 12vmin;
+    display: inline-block;
+    margin: 0.5vmin;
+    background-size: cover;
+}
+
+.unchecked-image{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 2vmin;
+}
+.blue-image{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    box-shadow: 0 0 0.5vmin 0.5vmin inset rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    border-radius: 2vmin;
+    display: none;
+}
+.orange-image{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    box-shadow: 0 0 0.5vmin 0.5vmin inset rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    border-radius: 2vmin;
+    display: none;
+}
+
+.blue > .unchecked-image, .orange > .unchecked-image, .both > .unchecked-image{
+    display: none;
+}
+.blue > .blue-image{
+    display: inherit;
+}
+.both > .blue-image{
+    display: inherit;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+.orange > .orange-image{
+    display: inherit;
+}
+.both > .orange-image{
+    display: inherit;
+    clip-path: polygon(0% 0%, 100% 100%, 100% 0%);
+}
+
+.board {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1vmin;
+
+    background: linear-gradient(45deg, rgba(168,0,0,1) 0%, rgba(0,0,120,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    border-radius: 3vmin;
+
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+.row {
+    display: flex;
+}
+h1{
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    font-size: 6em;
+}
+p{
+    font-size: 5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 1000;
+    font-style: bold;
+
+    height: 100vh;
+
+    background: radial-gradient(circle, rgba(60,0,84,0.4), rgba(0,0,0,1) 90%);
+    color: transparent;
+    background-clip: text;
+
+    overflow: hidden;
+
+    user-select: none;
+}
