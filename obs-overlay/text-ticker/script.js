@@ -1,0 +1,1 @@
+var tournament = new Tournament(1334);
