@@ -9,11 +9,13 @@ const victory_messages = [
 const scrollingText = document.getElementsByClassName("text")[0];
 const textBox = document.getElementsByClassName("box")[0];
 
-var targetMatchId = new URLSearchParams(window.location.search).get("match");
+var searchParams = new URLSearchParams(window.location.search)
+var targetMatchId = searchParams.get("match");
+var tournamentId = searchParams.get("id");
 
 var queuedMessages = [];
 
-var tournament = new Tournament(1334, function(){
+var tournament = new Tournament(id, function(){
     setInterval(() => { tournament.update(); }, 5000);
 });
 
