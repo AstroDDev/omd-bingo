@@ -3,7 +3,7 @@ const victory_messages = [
     "{victor} has proven themselves the alpha grandma after a fist fight with {loser}. {members} flex their bingo wings in dominance!",
     "{loser} tripped and fell in a cane duel against {victor}. {members} are the last seniors standing!",
     "{victor} and {loser} drag raced their wheelchairs. {members} fortunately brought motorized wheelchairs and won. Good job {victor}!",
-    "{victor} crimped the hose on {loser}'s CPAP machine. {loser} is eliminated from play. Victory Royal for {members}!",
+    "{victor} crimped the hose on {loser}'s CPAP machine. {loser} is eliminated from play. Victory Royal for {members}!"
 ];
 
 const scrollingText = document.getElementsByClassName("text")[0];
@@ -15,7 +15,7 @@ var tournamentId = searchParams.get("id");
 
 var queuedMessages = [];
 
-var tournament = new Tournament(id, function(){
+var tournament = new Tournament(tournamentId, function(){
     setInterval(() => { tournament.update(); }, 5000);
 });
 
@@ -98,6 +98,7 @@ function pushScrollText(){
 tournament.onScoreUpdate((match) => {
     if (match.id == targetMatchId){
         //Update Overlay in sheets
+        console.log("score update!!!");
     }
 });
 
@@ -111,8 +112,8 @@ tournament.onMatchResult((match) => {
         else member_text += ", " + members[i].username;
     }
 
-    let message = victory_messages[Math.floor(Math.random * victory_messages.length)];
-    message = message.replaceAll("{victor}", tournament.teams.get(winner)).replaceAll("{loser}", tournament.teams.get(loser)).replaceAll("{members}", member_text);
+    let message = victory_messages[Math.floor(Math.random() * victory_messages.length)];
+    message = message.replaceAll("{victor}", tournament.teams.get(winner.id)).replaceAll("{loser}", tournament.teams.get(loser.id)).replaceAll("{members}", member_text);
 
     queuedMessages.push(message);
 
@@ -120,6 +121,7 @@ tournament.onMatchResult((match) => {
         pushScrollText();
         animInterval = setInterval(animate, 10);
     }
+    console.log("WORKED!!!");
 });
 
 function measureText(txt){
