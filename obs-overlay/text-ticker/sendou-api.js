@@ -6,8 +6,8 @@ class Tournament{
         this.teams = new Map();
         this.brackets = [];
 
-        this.scoreUpdateCall = (e) => {};
-        this.matchResultCall = (e) => {};
+        this.scoreUpdateCall;
+        this.matchResultCall;
 
         var _this = this;
 
@@ -65,23 +65,32 @@ class Tournament{
 
             for (var i = 0; i < tourney.data.match.length; i++){
                 var bracketID = bracketIDs.indexOf(tourney.data.match[i].stage_id);
-                newBrackets[bracketID].addMatch(tourney.data.match[i]);
-                
-                var newMatch = newBrackets[bracketID].matches[newBrackets[bracketID].matches.length - 1];
-                var oldMatch = _this.brackets[bracketID].matches[newBrackets[bracketID].matches.length - 1];
-                if (newMatch.id != oldMatch.id){
-                    alert("MATCH ORDERING ERROR!!!");
-                    console.error("Unexpected Match Ordering Error");
-                    return;
-                }
-                if (newMatch.result != oldMatch.result){
-                    matchResultCall(newMatch);
-                }
-                else if (newMatch.score1 != oldMatch.score1 || newMatch.score2 != oldMatch.score2){
-                    scoreUpdateCall(newMatch);
-                }
 
-                _this.brackets[bracketID].matches[newBrackets[bracketID].matches.length - 1] = newMatch;
+                if (newBrackets[bracketID].addMatch(tourney.data.match[i])){
+                    var newMatch = newBrackets[bracketID].matches[newBrackets[bracketID].matches.length - 1];
+                    var oldMatch = _this.brackets[bracketID].matches[newBrackets[bracketID].matches.length - 1];
+                    try{
+                        if (newMatch.id != oldMatch.id){
+                            alert("MATCH ORDERING ERROR!!!");
+                            console.error("Unexpected Match Ordering Error");
+                            return;
+                        }
+                        if (newMatch.result != oldMatch.result){
+                            console.log("Match Update");
+                            _this.matchResultCall(newMatch);
+                        }
+                        else if (newMatch.score1 != oldMatch.score1 || newMatch.score2 != oldMatch.score2){
+                            console.log("Score Update");
+                            _this.scoreUpdateCall(newMatch);
+                        }
+
+                        _this.brackets[bracketID].matches[newBrackets[bracketID].matches.length - 1] = newMatch;
+                    }
+                    catch(e){
+                        console.log(JSON.stringify(newMatch));
+                        console.log(JSON.stringify(oldMatch));
+                    }
+                }
             }
         });
     }
@@ -105,19 +114,21 @@ class Bracket{
     }
 
     addMatch(matchObj){
+        if (matchObj == null){
+            return false;
+        }
         if (matchObj.opponent1 == null || matchObj.opponent2 == null || matchObj.opponent1.id == null || matchObj.opponent2.id == null){
-            console.warn("Failed to add match, is either a placeholder or a bye.");
-            return;
+            return false;
         }
         if (matchObj.stage_id != this.id){
-            console.warn("Match is not a part of bracket.");
-            return;
+            return false;
         }
 
         let result = matchObj.opponent1.result == null ? 0 : (matchObj.opponent1.result == "win" ? 1 : 2)
         let match = new Match(matchObj.id, matchObj.opponent1.id, matchObj.opponent2.id, matchObj.opponent1.score, matchObj.opponent2.score, result, this);
 
         this.matches.push(match);
+        return true;
     }
 }
 
