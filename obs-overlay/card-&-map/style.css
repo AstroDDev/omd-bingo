@@ -1,0 +1,158 @@
+@font-face {
+    font-family: 'Splatoon2';
+    src: url('https://raw.githubusercontent.com/North-West-Wind/splatoon3-fonts/master/Decrypted/BlitzMain.otf') format("opentype");
+}           
+
+@font-face {
+    font-family: 'Splatoon1';
+    src: url('https://raw.githubusercontent.com/North-West-Wind/splatoon3-fonts/master/Decrypted/BlitzBold.otf') format("opentype");
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html{
+    overflow: hidden;
+}
+
+body{
+    overflow: hidden;
+    background-color: black;
+}
+.tile {
+    position: relative;
+    width: 17.35vmin;
+    height: 17.35vmin;
+    display: inline-block;
+    margin: 1vmin;
+    background-size: cover;
+}
+
+.unchecked-image{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 3vmin;
+}
+.blue-image{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    box-shadow: 0 0 0.5vmin 0.5vmin inset rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    border-radius: 3vmin;
+    display: none;
+}
+.orange-image{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    box-shadow: 0 0 0.5vmin 0.5vmin inset rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    border-radius: 3vmin;
+    display: none;
+}
+
+.blue > .unchecked-image, .orange > .unchecked-image, .both > .unchecked-image{
+    display: none;
+}
+.blue > .blue-image{
+    display: inherit;
+}
+.both > .blue-image{
+    display: inherit;
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+}
+.orange > .orange-image{
+    display: inherit;
+}
+.both > .orange-image{
+    display: inherit;
+    clip-path: polygon(0% 0%, 100% 100%, 100% 0%);
+}
+
+.board {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5vmin;
+
+    background: linear-gradient(45deg, rgba(168,0,0,1) 0%, rgba(0,0,120,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    border-radius: 5vmin;
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+.row {
+    display: flex;
+}
+
+.tournament-title{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40%;
+    height: 20%;
+
+    background: linear-gradient(45deg, rgba(168,0,0,1) 0%, rgba(0,0,120,1) 100%);
+
+    border-radius: 5vmin;
+
+    font-family: "Splatoon2";
+    color: white;
+    font-size: 80px;
+
+    text-align: center;
+}
+
+.map-mode{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: 73%;
+
+    background: linear-gradient(45deg, rgba(168,0,0,1) 0%, rgba(0,0,120,1) 100%);
+
+    border-radius: 5vmin;
+}
+
+.map{
+    width: 93%;
+    height: 93%;
+    background-size: cover;
+    background-position: 50%;
+    border-radius: 3vmin;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mode{
+    width: 212px;
+    height: 212px;
+    background-size: cover;
+
+    position: absolute;
+    left: 50%;
+    top: 2%;
+
+    transform: translateX(-50%);
+}

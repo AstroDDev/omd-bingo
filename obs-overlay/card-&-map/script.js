@@ -1,0 +1,164 @@
+const map = document.getElementsByClassName("map")[0];
+const mode = document.getElementsByClassName("mode")[0];
+
+var targetMatchId;
+var tournamentUrl;
+
+var tournament;
+
+function onScoreUpdate(match) {
+    /*if (match.id == targetMatchId){
+        var mapIndex = match.score1 + match.score2;
+        map.style.backgroundImage = "url('../../resources/maps/" + tournament.map_list[mapIndex].map + ".png')";
+        mode.style.backgroundImage = "url('../../resources/modes/" + tournament.map_list[mapIndex].mode + ".png')";
+    }*/
+}
+
+const sheetsAppUrl = "https://script.google.com/macros/s/AKfycbwGTvqjnRDoOGYxXxqbCFb-RvPXB8D8nxusRgc-ZYo5MwmSd3EEHKpWlkZeBKeK_qFPCw/exec";
+const sheetParams = {
+  spreadsheetId: "1RiaaW2m5NDao1XgKrWoyMuUkhxL2FPlxIA9c48YYVls",  // Please set your Google Spreadsheet ID.
+  sheetName: "Sheet1"  // Please set the sheet name you want to retrieve the values.
+};
+const q = new URLSearchParams(sheetParams);
+const url = sheetsAppUrl + "?" + q;
+
+var spreadSheetData = {};
+
+function initializeSendouTournament(){
+    fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            spreadSheetData = res.values;
+            tournamentUrl = spreadSheetData[0][1];
+            loadBoardImages(spreadSheetData[3][1]);
+
+            tournament = new Tournament(tournamentUrl, function(){
+                if (tournament.data.ctx.castedMatchesInfo != null){
+                    targetMatchId = tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId;
+                    tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
+                }
+
+                setInterval(() => { 
+                    updateSpreadSheet();
+                    tournament.update();
+                    updateMapMode();
+                }, 5000);
+            }, function(){
+                console.warn("Tournament fetch failed, trying again in 10 seconds...");
+                setTimeout(initializeSendouTournament, 10000);
+            });
+
+            tournament.onScoreUpdate(onScoreUpdate);
+        });
+}
+
+function updateSpreadSheet(){
+    fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            spreadSheetData = res.values;
+            
+            /*if (targetMatchId != spreadSheetData[1][1]){
+                targetMatchId = spreadSheetData[1][1];
+                tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
+            }*/
+
+            if (spreadSheetData[3][1] != rawBoardData){
+                loadBoardImages(spreadSheetData[3][1]);
+            }
+        });
+}
+
+function updateMapMode(){
+    if (targetMatchId != null && targetMatchId != tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId){
+        targetMatchId = tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId;
+        tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
+    }
+
+    try{
+        var targetMatch = tournament.getMatch(targetMatchId);
+        var mapIndex = Math.min(targetMatch.score1 + targetMatch.score2, tournament.map_list.length - 1);
+        map.style.backgroundImage = "url('../../resources/maps/" + tournament.map_list[mapIndex].map + ".png')";
+        mode.style.backgroundImage = "url('../../resources/modes/" + tournament.map_list[mapIndex].mode + ".png')";
+    }
+    catch(e){
+        console.error(e);
+    }
+}
+
+//Bingo Stuff
+const cells = document.getElementsByClassName("tile");
+
+const image_path = "../../resources/obs/weapon-images/";
+
+function bingoClick(evt, index){
+    if (evt.button == 0) bingoOrange(index);
+    else if (evt.button == 2) bingoBlue(index);
+}
+
+function bingoBlue(index){
+    var className = cells[index].classList[1];
+    var enabled = className == "blue" || className == "both";
+    var altEnabled = className == "orange" || className == "both";
+
+    var newClass = enabled ? (altEnabled ? "orange" : "none") : (altEnabled ? "both" : "blue");
+    cells[index].classList.remove(className);
+    cells[index].classList.add(newClass);
+}
+
+function bingoOrange(index){
+    var className = cells[index].classList[1];
+    var enabled = className == "orange" || className == "both";
+    var altEnabled = className == "blue" || className == "both";
+
+    var newClass = enabled ? (altEnabled ? "blue" : "none") : (altEnabled ? "both" : "orange");
+    cells[index].classList.remove(className);
+    cells[index].classList.add(newClass);
+}
+
+var rawBoardData;
+function loadBoardImages(boardText){
+    rawBoardData = boardText;
+    var textEncoder = new TextEncoder();
+    var boardData = textEncoder.encode(rawBoardData);
+    for (var i = 0; i < cells.length; i++){
+        var weaponName = boardData[i];
+        cells[i].id = weaponName;
+        cells[i].className = "tile none";
+        cells[i].children[0].style.backgroundImage = "url('" + image_path + weaponName + "_Blue.png')";
+        cells[i].children[1].style.backgroundImage = "url('" + image_path + weaponName + "_Orange.png')";
+        cells[i].children[2].style.backgroundImage = "url('" + image_path + weaponName + "_Unchecked.png')";
+    }
+}
+
+cells[0].addEventListener("mousedown", (evt) => { bingoClick(evt, 0); });
+cells[1].addEventListener("mousedown", (evt) => { bingoClick(evt, 1); });
+cells[2].addEventListener("mousedown", (evt) => { bingoClick(evt, 2); });
+cells[3].addEventListener("mousedown", (evt) => { bingoClick(evt, 3); });
+cells[4].addEventListener("mousedown", (evt) => { bingoClick(evt, 4); });
+
+cells[5].addEventListener("mousedown", (evt) => { bingoClick(evt, 5); });
+cells[6].addEventListener("mousedown", (evt) => { bingoClick(evt, 6); });
+cells[7].addEventListener("mousedown", (evt) => { bingoClick(evt, 7); });
+cells[8].addEventListener("mousedown", (evt) => { bingoClick(evt, 8); });
+cells[9].addEventListener("mousedown", (evt) => { bingoClick(evt, 9); });
+
+cells[10].addEventListener("mousedown", (evt) => { bingoClick(evt, 10); });
+cells[11].addEventListener("mousedown", (evt) => { bingoClick(evt, 11); });
+cells[12].addEventListener("mousedown", (evt) => { bingoClick(evt, 12); });
+cells[13].addEventListener("mousedown", (evt) => { bingoClick(evt, 13); });
+cells[14].addEventListener("mousedown", (evt) => { bingoClick(evt, 14); });
+
+cells[15].addEventListener("mousedown", (evt) => { bingoClick(evt, 15); });
+cells[16].addEventListener("mousedown", (evt) => { bingoClick(evt, 16); });
+cells[17].addEventListener("mousedown", (evt) => { bingoClick(evt, 17); });
+cells[18].addEventListener("mousedown", (evt) => { bingoClick(evt, 18); });
+cells[19].addEventListener("mousedown", (evt) => { bingoClick(evt, 19); });
+
+cells[20].addEventListener("mousedown", (evt) => { bingoClick(evt, 20); });
+cells[21].addEventListener("mousedown", (evt) => { bingoClick(evt, 21); });
+cells[22].addEventListener("mousedown", (evt) => { bingoClick(evt, 22); });
+cells[23].addEventListener("mousedown", (evt) => { bingoClick(evt, 23); });
+cells[24].addEventListener("mousedown", (evt) => { bingoClick(evt, 24); });
+
+initializeSendouTournament();

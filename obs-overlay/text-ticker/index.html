@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @font-face {
+                font-family: 'Splatoon2';
+                src: url('https://raw.githubusercontent.com/North-West-Wind/splatoon3-fonts/master/Decrypted/BlitzMain.otf') format("opentype");
+            }           
+
+            @font-face {
+                font-family: 'Splatoon1';
+                src: url('https://raw.githubusercontent.com/North-West-Wind/splatoon3-fonts/master/Decrypted/BlitzBold.otf') format("opentype");
+            }
+
+            body{
+                background-color: black;
+                overflow: hidden;
+            }
+            .box{
+                overflow: hidden;
+                position: absolute;
+                left: 50%;
+                bottom: -200px;
+                transform: translate(-50%, -50%);
+                background-image: linear-gradient(45deg, rgba(168,0,0,1) 0%, rgba(0,0,120,1) 100%);
+                border-radius: 24px;
+            }
+            .text{
+                font-family: "Splatoon2", monospace;
+                font-size: 60px;
+                position: relative;
+                bottom: 12px;
+                white-space: nowrap;
+                color: white;
+            }
+
+            .teamAlpha{
+                width: 20%;
+                height: 80px;
+                background-image: linear-gradient(45deg, rgba(207, 88, 27, 0.75) 0%, rgba(207, 88, 27, 0.25) 100%);
+                position: absolute;
+                left: 30px;
+                top: 30px;
+                border-radius: 24px;
+            }
+
+            .teamBravo{
+                width: 20%;
+                height: 80px;
+                background-image: linear-gradient(-45deg, rgba(20, 20, 148, 0.75) 0%, rgba(20, 20, 148, 0.25) 100%);
+                position: absolute;
+                right: 30px;
+                top: 30px;
+                border-radius: 24px;
+            }
+
+            .teamAlphaName{
+                font-family: "Splatoon2", monospace;
+                font-size: 50px;
+                color: white;
+                position: absolute;
+                left: 15px;
+                top: -13px;
+                width: 82%;
+                height: 100px;
+                overflow: hidden;
+                text-align: left;
+            }
+
+            .teamBravoName{
+                font-family: "Splatoon2", monospace;
+                font-size: 50px;
+                color: white;
+                position: absolute;
+                right: 15px;
+                top: -13px;
+                width: 82%;
+                height: 100px;
+                overflow: hidden;
+                text-align: right;
+            }
+
+            .teamAlphaScore{
+                font-family: "Splatoon2", monospace;
+                font-size: 80px;
+                color: white;
+                position: absolute;
+                right: 15px;
+                top: -42px;
+            }
+
+            .teamBravoScore{
+                font-family: "Splatoon2", monospace;
+                font-size: 80px;
+                color: white;
+                position: absolute;
+                left: 15px;
+                top: -42px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="teamAlpha">
+            <div class="teamAlphaName"></div>
+            <div class="teamAlphaScore">0</div>
+        </div>
+        <div class="teamBravo">
+            <div class="teamBravoName"></div>
+            <div class="teamBravoScore">0</div>
+        </div>
+
+        <div class="box">
+            <div class="text"></div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="../sendou-api.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
