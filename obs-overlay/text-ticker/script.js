@@ -32,8 +32,8 @@ function animate(){
     if (animStage == 0){
         //Open
         if (animFrame == 0){
-            animTextWidth = measureText(animCurrentText);
-            scrollingText.style.right = "-1600px";
+            animTextWidth = measureText(animCurrentText) + 2000;
+            scrollingText.style.right = "-1800px";
         }
 
         textBox.style.bottom = ((animFrame / stage1Length * 200) - 200).toString() + "px";
@@ -52,17 +52,16 @@ function animate(){
     }
     else if (animStage == 1){
         //Scroll
-        scrollingText.style.right = (animFrame * (animTextWidth / stage2Length) - 1600).toString() + "px";
+        scrollingText.style.right = (animFrame * (animTextWidth / stage2Length) - 1800).toString() + "px";
 
         if (animFrame == stage2Length){
             animFrame = 0;
             animStage = 2;
 
             if (queuedMessages.length > 0){
-                console.log("NEW MESSAGE");
                 pushScrollText();
                 animStage = 1;
-                scrollingText.style.right = "-1600px";
+                scrollingText.style.right = "-1800px";
             }
 
             return;
@@ -129,7 +128,7 @@ function measureText(txt){
     var canvas = document.createElement("canvas");
     var ctx = canvas.getContext("2d");
     ctx.font = "60px Splatoon2";
-    return ctx.measureText(txt).width + 1450;
+    return ctx.measureText(txt).width;
 }
 
 const sheetsAppUrl = "https://script.google.com/macros/s/AKfycbwGTvqjnRDoOGYxXxqbCFb-RvPXB8D8nxusRgc-ZYo5MwmSd3EEHKpWlkZeBKeK_qFPCw/exec";
