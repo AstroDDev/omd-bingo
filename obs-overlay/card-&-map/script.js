@@ -22,6 +22,44 @@ const sheetParams = {
 const q = new URLSearchParams(sheetParams);
 const url = sheetsAppUrl + "?" + q;
 
+const encoderData = [
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
+    "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
+    "u", "v", "w", "x", "y", "z", "A", "B", "C", "D",
+    "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+    "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
+    "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7",
+    "8", "9", "!", "@", "#", "$", "%", "^", "&", "*",
+    "(", ")", "_", "=", "+", "[", "]", "{", "}", "|",
+    ";", ":", "'", "\"", ",", ".", "<", ">", "/", "?",
+    "-a", "-b", "-c", "-d", "-e", "-f", "-g", "-h", "-i", "-j",
+    "-k", "-l", "-m", "-n", "-o", "-p", "-q", "-r", "-s", "-t",
+    "-u", "-v", "-w", "-x", "-y", "-z", "-A", "-B", "-C", "-D",
+    "-E", "-F", "-G", "-H", "-I", "-J", "-K", "-L", "-M", "-N",
+    "-O", "-P", "-Q", "-R", "-S", "-T", "-U", "-V", "-W", "-X",
+    "-Y", "-Z", "-0", "-1", "-2", "-3", "-4", "-5", "-6", "-7",
+    "-8", "-9"
+];
+
+function encodeBoardTile(index){
+    return encoderData[index];
+}
+
+function decodeBoard(data){
+    var boardData = [];
+    
+    var x = 0;
+    for (var i = 0; i < data.length; i++){
+        boardData[x] = encoderData.indexOf(data[i]);
+        if (boardData[x] == -1){
+            boardData[x] = encoderData.indexOf(data[i] + data[i+1]);
+            i++;
+        }
+        x++;
+    }
+    return boardData;
+}
+
 var spreadSheetData = {};
 
 function initializeSendouTournament(){
@@ -119,8 +157,7 @@ function bingoOrange(index){
 var rawBoardData;
 function loadBoardImages(boardText){
     rawBoardData = boardText;
-    var textEncoder = new TextEncoder();
-    var boardData = textEncoder.encode(rawBoardData);
+    var boardData = decodeBoard(rawBoardData);
     for (var i = 0; i < cells.length; i++){
         var weaponName = boardData[i];
         cells[i].id = weaponName;
