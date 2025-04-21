@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            image{
+                width: 256;
+                height: 256;
+            }
+            .board{
+                font-size: 0;
+            }
+            img{
+                width: 32px;
+                height: 32px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Bingo Board Generator</h1>
+        <label for="quantity">Amount to Generate: </label>
+        <input type="number" name="quantity" id="quantity" min="1" max="50" value="1"><br><br>
+        <button onclick="Generate()">Generate</button><br><br>
+        <div id="result"></div>
+        <script src="script.js"></script>
+    </body>
+</html>
