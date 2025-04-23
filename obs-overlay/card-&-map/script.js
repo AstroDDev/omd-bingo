@@ -108,19 +108,21 @@ function updateSpreadSheet(){
 }
 
 function updateMapMode(){
-    if (targetMatchId != null && targetMatchId != tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId){
+    if (targetMatchId == null && tournament.data.ctx.castedMatchesInfo != null){
         targetMatchId = tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId;
         tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
     }
 
-    try{
+    if (targetMatchId != null){
+        if (targetMatchId != tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId){
+            targetMatchId = tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId;
+            tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
+        }
+        
         var targetMatch = tournament.getMatch(targetMatchId);
         var mapIndex = Math.min(targetMatch.score1 + targetMatch.score2, tournament.map_list.length - 1);
         map.style.backgroundImage = "url('../../resources/maps/" + tournament.map_list[mapIndex].map + ".png')";
         mode.style.backgroundImage = "url('../../resources/modes/" + tournament.map_list[mapIndex].mode + ".png')";
-    }
-    catch(e){
-        console.error(e);
     }
 }
 
