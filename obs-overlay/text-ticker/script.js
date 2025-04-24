@@ -1,9 +1,14 @@
 const victory_messages = [
     "{victor} throws their hands in the air and yells BINGO! Leaving {loser} alone and bingoless. Well done {members}!",
-    "{victor} has proven themselves the alpha grandma after a fist fight with {loser}. {members} flex their bingo wings in dominance!",
-    "{loser} tripped and fell in a cane duel against {victor}. {members} are the last seniors standing!",
-    "{victor} and {loser} drag raced their wheelchairs. {members} fortunately brought motorized wheelchairs and won. Good job {victor}!",
-    "{victor} crimped the hose on {loser}'s CPAP machine. {loser} is eliminated from play. Victory Royal for {members}!"
+    "{victor} has proven themselves the alpha grandma after a fist fight with {loser}. Congratulations {members}!",
+    "{loser} tripped and fell in a cane duel against {victor}. The last seniors standing are {members}!",
+    "{victor} beat {loser} in a wheelchair drag race. Your speedy grandmas are {members}!",
+    "{victor} crimped the hose on {loser}'s CPAP machine. Victory Royal! Congratulations {members}!",
+    "{victor} just got a BINGO! {loser} will now be sparta kicked into the pit of death by {members}.",
+    "{victor} just got a 5 in a row in connect 4 against {loser}! Does that count as a bingo? Well done {members}!",
+    "{loser} is looking to sub for another team after being eliminated by {victor}. Well fought {members}!",
+    "{victor} was sentenced to 20 years in prison for Bingo-ing too hard against {loser}. Reign it in next time {members}.",
+    "{loser} had their IP address posted on the internet by {victor}. How could you {members}?"
 ];
 
 const scrollingText = document.getElementsByClassName("text")[0];
