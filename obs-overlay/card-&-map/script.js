@@ -1,8 +1,12 @@
 const map = document.getElementsByClassName("map")[0];
 const mode = document.getElementsByClassName("mode")[0];
+const roundTitle = document.getElementsByClassName("tournament-title")[0];
+
+const roundNames = ["Groups Round {round}", "Semi-Finals", "Grand Finals"];
 
 var targetMatchId;
 var tournamentUrl;
+var roundTitleIndex = 0;
 
 var tournament;
 
@@ -68,12 +72,15 @@ function initializeSendouTournament(){
         .then(res => {
             spreadSheetData = res.values;
             tournamentUrl = spreadSheetData[0][1];
-            loadBoardImages(spreadSheetData[3][1]);
+            loadBoardImages(spreadSheetData[3 + roundTitleIndex][1]);
 
             tournament = new Tournament(tournamentUrl, function(){
                 if (tournament.data.ctx.castedMatchesInfo != null){
                     targetMatchId = tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId;
                     tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
+
+                    //Get Round Index (Groups: 0, Bracket Round 1: 1, Grands: 2)
+                    getRoundIndex();
                 }
 
                 setInterval(() => { 
@@ -90,19 +97,54 @@ function initializeSendouTournament(){
         });
 }
 
+function getRoundIndex(){
+    roundTitleIndex = 0;
+    var targetRoundId = 0;
+    var targetStageId = 0;
+    var roundNumber;
+    for (var i = 0; i < tournament.data.data.match.length; i++){
+        if (tournament.data.data.match[i].id == targetMatchId){
+            targetRoundId = tournament.data.data.match[i].round_id;
+            targetStageId = tournament.data.data.match[i].stage_id;
+            break;
+        }
+    }
+    var type;
+    for (var i = 0; i < tournament.data.data.stage.length; i++){
+        if (tournament.data.data.stage[i].id == targetStageId){
+            type = tournament.data.data.stage[i].type;
+            break;
+        }
+    }
+    if (type != "swiss"){
+        for (var i = 0; i < tournament.data.data.round.length; i++){
+            if (tournament.data.data.round[i].id == targetRoundId){
+                roundTitleIndex = tournament.data.data.round[i].number;
+                break;
+            }
+        }
+    }
+    else{
+        for (var i = 0; i < tournament.data.data.round.length; i++){
+            if (tournament.data.data.round[i].id == targetRoundId){
+                roundNumber = tournament.data.data.round[i].number;
+                break;
+            }
+        }
+        
+    }
+
+    roundTitle.innerHTML = roundNames[roundTitleIndex].replace("{round}", roundNumber);
+}
+
 function updateSpreadSheet(){
     fetch(url)
         .then(res => res.json())
         .then(res => {
             spreadSheetData = res.values;
-            
-            /*if (targetMatchId != spreadSheetData[1][1]){
-                targetMatchId = spreadSheetData[1][1];
-                tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
-            }*/
 
-            if (spreadSheetData[3][1] != rawBoardData){
-                loadBoardImages(spreadSheetData[3][1]);
+            if (spreadSheetData[3 + roundTitleIndex][1] != rawBoardData){
+                loadBoardImages(spreadSheetData[3 + roundTitleIndex][1]);
             }
         });
 }
@@ -114,6 +156,8 @@ function updateMapMode(){
     }
 
     if (targetMatchId != null){
+        getRoundIndex();
+
         if (targetMatchId != tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId){
             targetMatchId = tournament.data.ctx.castedMatchesInfo.castedMatches[0].matchId;
             tournament.updateURL(tournamentUrl + "/matches/" + targetMatchId);
